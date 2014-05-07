@@ -14,6 +14,7 @@ gem 'redis', '~> 3.0.7'
 gem 'hiredis', '~> 0.5.2'
 gem 'haml-rails'
 gem 'puma'
+gem 'rack-timeout'
 
 group :doc do
   gem 'sdoc', require: false
