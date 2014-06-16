@@ -8,7 +8,12 @@ $ ->
     console.log event.data
     message = JSON.parse(event.data)
     $(".messages").append "<div class=sender>" + message.sender + "</div>" + "<div class=message>" + message.message + "</div>"
-    return
+
+  source.addEventListener "open", (event) ->
+    console.log event.data
+
+  source.addEventListener "error", (event) ->
+    console.log event.data
 
   $("form").submit (e) ->
     e.preventDefault()
@@ -17,11 +22,7 @@ $ ->
       message: $("form .message").val()
 
     $("form .message").val ""
-    return
 
   $(".change-name").click ->
     name = prompt("Enter your name:")
     $(".name").text name
-    return
-
-  return
