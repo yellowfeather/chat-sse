@@ -10,12 +10,14 @@ class EventsController < ApplicationController
     redis = Redis.new(url: ENV['REDISTOGO_URL'])
     redis.subscribe(channel) do |on|
       on.message do |channel, message|
+        logger.info "EventsController.index sse.write"
         sse.write(message, id: Time.now)
       end
     end
   rescue IOError
-    logger.info "Stream closed"
+    logger.info "EventsController.index Stream closed"
   ensure
+    logger.info "EventsController.index closing"
     redis.quit
     sse.close
   end
