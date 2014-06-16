@@ -44,7 +44,6 @@ ChatSse::Application.configure do
   # config.force_ssl = true
 
   # Set to :debug to see everything in the log.
-  config.logger = Logger.new(STDOUT)
   config.log_level = :info
 
   # Prepend all log lines with the following tags.
@@ -79,4 +78,6 @@ ChatSse::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.allow_concurrency = true
 end
