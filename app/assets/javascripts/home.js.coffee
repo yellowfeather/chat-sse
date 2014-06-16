@@ -10,10 +10,10 @@ $ ->
     $(".messages").append "<div class=sender>" + message.sender + "</div>" + "<div class=message>" + message.message + "</div>"
 
   source.addEventListener "open", (event) ->
-    console.log event.data
+    console.log event
 
   source.addEventListener "error", (event) ->
-    console.log event.data
+    console.log event
 
   $("form").submit (e) ->
     e.preventDefault()
